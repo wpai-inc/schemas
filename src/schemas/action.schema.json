@@ -1,0 +1,182 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://schema.agentwp.com/action.schema.json",
+    "version": "0.1.0",
+    "title": "Action",
+    "description": "An action is an object that can be executed in WordPress to perform a particular task according to its capabilities.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "#/definitions/baseAction"
+        }
+    ],
+    "oneOf": [
+        {
+            "$ref": "#/definitions/navigateAction"
+        },
+        {
+            "$ref": "#/definitions/runAction"
+        },
+        {
+            "$ref": "#/definitions/codeAction"
+        },
+        {
+            "$ref": "#/definitions/messageAction"
+        }
+    ],
+    "definitions": {
+        "baseAction": {
+            "type": "object",
+            "properties": {
+                "capability": {
+                    "type": "string",
+                    "description": "The capability of the Action defines what it's able to do when executed by the WordPress client."
+                }
+            },
+            "required": [
+                "capability"
+            ]
+        },
+        "navigateAction": {
+            "allOf": [
+                {
+                    "properties": {
+                        "capability": {
+                            "const": "navigate",
+                            "title": "Performs a standard page navigation within WordPress using `window.location`."
+                        },
+                        "url": {
+                            "type": "string",
+                            "description": "The URL to navigate to."
+                        }
+                    },
+                    "required": [
+                        "url"
+                    ]
+                }
+            ]
+        },
+        "runAction": {
+            "allOf": [
+                {
+                    "properties": {
+                        "capability": {
+                            "const": "run",
+                            "title": "Runs a WP CLI command in the WordPress installation."
+                        },
+                        "command": {
+                            "type": "string",
+                            "description": "The WP CLI command to run."
+                        },
+                        "args": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "Arguments for the command."
+                        }
+                    },
+                    "required": [
+                        "command"
+                    ]
+                }
+            ]
+        },
+        "codeAction": {
+            "allOf": [
+                {
+                    "properties": {
+                        "capability": {
+                            "const": "code",
+                            "title": "Code to be executed in the WordPress environment."
+                        },
+                        "file": {
+                            "type": "string",
+                            "description": "The absolute file path to the code."
+                        }
+                    },
+                    "required": [
+                        "file"
+                    ]
+                }
+            ]
+        },
+        "messageAction": {
+            "type": "object",
+            "properties": {
+                "capability": {
+                    "const": "message",
+                    "title": "Sends a message to the Agent WP dialog interface for the user to respond to."
+                },
+                "text": {
+                    "type": "string",
+                    "description": "The text of the message in markdown."
+                },
+                "buttons": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "label": {
+                                "type": "string"
+                            },
+                            "url": {
+                                "type": "string"
+                            },
+                            "level": {
+                                "type": "string",
+                                "enum": [
+                                    "primary",
+                                    "secondary",
+                                    "danger",
+                                    "success"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "label",
+                            "url"
+                        ]
+                    }
+                },
+                "graph": {
+                    "type": "object",
+                    "properties": {
+                        "graphType": {
+                            "type": "string",
+                            "default": "bar"
+                        },
+                        "title": {
+                            "type": "string"
+                        },
+                        "data": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "label": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "number"
+                                    }
+                                },
+                                "required": [
+                                    "label",
+                                    "value"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "graphType",
+                        "data"
+                    ]
+                }
+            },
+            "required": [
+                "text"
+            ]
+        }
+    }
+}
