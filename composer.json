@@ -1,0 +1,17 @@
+{
+    "name": "wpai-inc/schemas",
+    "description": "JSON Schema for different business entities",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "WpAi\\Schemas\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Greg Hunt",
+            "email": "greg@codewp.ai"
+        }
+    ],
+    "require": {}
+}

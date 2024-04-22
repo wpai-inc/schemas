@@ -1,0 +1,19 @@
+{
+  "name": "@wpai/schemas",
+  "version": "1.0.0",
+  "description": "JSON Schema for WP AI entities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpai-inc/schemas.git"
+  },
+  "author": "Greg Hunt <greg@codewp.ai>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wpai-inc/schemas/issues"
+  },
+  "homepage": "https://github.com/wpai-inc/schemas#readme"
+}
