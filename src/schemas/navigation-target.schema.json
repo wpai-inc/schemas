@@ -1,0 +1,57 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "title": "WordPress Navigation Target",
+    "description": "An object that identifies a WordPress page and its capabilities.",
+    "required": [
+        "purpose",
+        "capabilities",
+        "is_spa"
+    ],
+    "properties": {
+        "purpose": {
+            "type": "string",
+            "description": "The page's reason for being, in no more than 280 characters.",
+            "maxLength": 280
+        },
+        "capabilities": {
+            "type": "array",
+            "description": "An array of objects representing the page's capabilities.",
+            "items": {
+                "type": "object",
+                "required": [
+                    "capability_description",
+                    "element_selector",
+                    "element_type",
+                    "has_payload"
+                ],
+                "properties": {
+                    "capability_description": {
+                        "type": "string",
+                        "description": "A description of what the capability does."
+                    },
+                    "acting_element_selector": {
+                        "type": "string",
+                        "description": "The CSS selector for the element that performs the capability."
+                    },
+                    "element_type": {
+                        "type": "string",
+                        "description": "The type of element (e.g., form, input, button, a)."
+                    },
+                    "has_payload": {
+                        "type": "boolean",
+                        "description": "Whether the element expects a payload or not. For example, an anchor tag or button does not expect a payload, but a form or input does."
+                    },
+                    "payload_description": {
+                        "type": "string",
+                        "description": "A description of what the element expects as a payload (optional)."
+                    }
+                }
+            }
+        },
+        "is_spa": {
+            "type": "boolean",
+            "description": "Indicates whether the page is a single-page application (SPA) or not."
+        }
+    }
+}
