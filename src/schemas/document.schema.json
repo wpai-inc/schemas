@@ -1,0 +1,69 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://schema.agentwp.com/document.schema.json",
+    "version": "0.1.0",
+    "type": "object",
+    "title": "Document",
+    "description": "A document is an object that can be extracted from WordPress pages to identify metadata within its content.",
+    "required": [
+        "short_desc",
+        "long_desc",
+        "types",
+        "plugins",
+        "versions"
+    ],
+    "properties": {
+        "short_desc": {
+            "type": "string",
+            "description": "One sentence description of the document, unique and descriptive.",
+            "maxLength": 120
+        },
+        "long_desc": {
+            "type": "string",
+            "description": "A long and detailed description of the content, summarizing everything, in no more than 280 characters.",
+            "maxLength": 280
+        },
+        "key_points": {
+            "type": "array",
+            "description": "List of key points summarized from the document.",
+            "items": {
+                "type": "string",
+                "description": "key information; a sentence or paragraph."
+            }
+        },
+        "types": {
+            "type": "array",
+            "description": "Categories describing the type of content.",
+            "items": {
+                "type": "string",
+                "description": "The types of content, with specifics for 'other' category.",
+                "enum": [
+                    "technical_tutorial",
+                    "general_tutorial",
+                    "pricing_page",
+                    "news",
+                    "changelog",
+                    "other",
+                    "other:custom_category"
+                ]
+            }
+        },
+        "plugins": {
+            "type": "array",
+            "description": "List of plugin names mentioned in the document.",
+            "items": {
+                "type": "string",
+                "description": "Name of the WordPress plugins referenced, in slug format."
+            }
+        },
+        "versions": {
+            "type": "array",
+            "description": "Software versions explicitly mentioned in the document.",
+            "items": {
+                "type": "string",
+                "pattern": "^\\w+=\\d+(\\.\\d+)*(\\.\\d+)*$",
+                "description": "Software version in the format 'software=x.x.x'."
+            }
+        }
+    }
+}
