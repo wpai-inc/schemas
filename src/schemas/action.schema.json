@@ -3,7 +3,7 @@
     "$id": "https://schema.agentwp.com/action.schema.json",
     "version": "0.1.0",
     "title": "Action",
-    "description": "An action is an object that can be executed in WordPress to perform a particular task according to its capabilities.",
+    "description": "An action is an object that can be executed in WordPress to perform a particular task according to its abilities.",
     "type": "object",
     "allOf": [
         {
@@ -28,20 +28,20 @@
         "baseAction": {
             "type": "object",
             "properties": {
-                "capability": {
+                "ability": {
                     "type": "string",
-                    "description": "The capability of the Action defines what it's able to do when executed by the WordPress client."
+                    "description": "The ability of the Action defines what it's able to do when executed by the WordPress client."
                 }
             },
             "required": [
-                "capability"
+                "ability"
             ]
         },
         "navigateAction": {
             "allOf": [
                 {
                     "properties": {
-                        "capability": {
+                        "ability": {
                             "const": "navigate",
                             "title": "Performs a standard page navigation within WordPress using `window.location`."
                         },
@@ -60,7 +60,7 @@
             "allOf": [
                 {
                     "properties": {
-                        "capability": {
+                        "ability": {
                             "const": "run",
                             "title": "Runs a WP CLI command in the WordPress installation."
                         },
@@ -86,7 +86,7 @@
             "allOf": [
                 {
                     "properties": {
-                        "capability": {
+                        "ability": {
                             "const": "code",
                             "title": "Code to be executed in the WordPress environment."
                         },
@@ -104,7 +104,7 @@
         "messageAction": {
             "type": "object",
             "properties": {
-                "capability": {
+                "ability": {
                     "const": "message",
                     "title": "Sends a message to the Agent WP dialog interface for the user to respond to."
                 },
