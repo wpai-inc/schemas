@@ -36,7 +36,7 @@
                     },
                     "element_type": {
                         "type": "string",
-                        "description": "The type of element (e.g., form, input, button, a)."
+                        "description": "The actual HTML element, (e.g., form, input, button, a), based on links and forms provided."
                     },
                     "has_payload": {
                         "type": "boolean",
@@ -44,7 +44,7 @@
                     },
                     "payload_description": {
                         "type": "string",
-                        "description": "A description of what the element expects as a payload (optional)."
+                        "description": "A description of what the element expects as a payload, only applicable when there is a form or input associated with it."
                     }
                 }
             }
