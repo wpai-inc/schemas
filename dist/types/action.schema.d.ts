@@ -6,13 +6,17 @@
  */
 
 /**
- * An action is an object that can be executed in WordPress to perform a particular task according to its capabilities.
+ * An action is an object that can be executed in WordPress to perform a particular task according to its abilities. It is coupling of an ability with a data structure.
  */
 export type Action = Action1 & Action2;
 export type Action1 = BaseAction;
+/**
+ * The ability of the Action defines what it's able to do when executed by the WordPress client.
+ */
+export type Abilities = "run" | "message" | "navigate" | "query" | "code" | "writeToInput" | "writeToEditor";
 export type Action2 = NavigateAction | RunAction | CodeAction | MessageAction;
 export type NavigateAction = {
-  capability?: PerformsAStandardPageNavigationWithinWordPressUsingWindowLocation;
+  ability?: PerformsAStandardPageNavigationWithinWordPressUsingWindowLocation;
   /**
    * The URL to navigate to.
    */
@@ -21,7 +25,7 @@ export type NavigateAction = {
 };
 export type PerformsAStandardPageNavigationWithinWordPressUsingWindowLocation = "navigate";
 export type RunAction = {
-  capability?: RunsAWPCLICommandInTheWordPressInstallation;
+  ability?: RunsAWPCLICommandInTheWordPressInstallation;
   /**
    * The WP CLI command to run.
    */
@@ -34,7 +38,7 @@ export type RunAction = {
 };
 export type RunsAWPCLICommandInTheWordPressInstallation = "run";
 export type CodeAction = {
-  capability?: CodeToBeExecutedInTheWordPressEnvironment;
+  ability?: CodeToBeExecutedInTheWordPressEnvironment;
   /**
    * The absolute file path to the code.
    */
@@ -45,14 +49,11 @@ export type CodeToBeExecutedInTheWordPressEnvironment = "code";
 export type SendsAMessageToTheAgentWPDialogInterfaceForTheUserToRespondTo = "message";
 
 export interface BaseAction {
-  /**
-   * The capability of the Action defines what it's able to do when executed by the WordPress client.
-   */
-  capability: string;
+  ability: Abilities;
   [k: string]: unknown;
 }
 export interface MessageAction {
-  capability?: SendsAMessageToTheAgentWPDialogInterfaceForTheUserToRespondTo;
+  ability?: SendsAMessageToTheAgentWPDialogInterfaceForTheUserToRespondTo;
   /**
    * The text of the message in markdown.
    */

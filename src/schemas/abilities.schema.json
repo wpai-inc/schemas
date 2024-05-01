@@ -1,0 +1,17 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Abilities",
+    "$id": "https://schemas.agentwp.com/abilities.schema.json",
+    "version": "0.1.0",
+    "description": "Enumeration of available abilities for a AgentWP.",
+    "type": "string",
+    "enum": [
+        "run",
+        "message",
+        "navigate",
+        "query",
+        "code",
+        "writeToInput",
+        "writeToEditor"
+    ]
+}

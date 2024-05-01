@@ -1,9 +1,9 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://schema.agentwp.com/action.schema.json",
+    "$id": "https://schemas.agentwp.com/action.schema.json",
     "version": "0.1.0",
     "title": "Action",
-    "description": "An action is an object that can be executed in WordPress to perform a particular task according to its abilities.",
+    "description": "An action is an object that can be executed in WordPress to perform a particular task according to its abilities. It is coupling of an ability with a data structure.",
     "type": "object",
     "allOf": [
         {
@@ -25,11 +25,25 @@
         }
     ],
     "definitions": {
+        "abilities": {
+            "title": "Abilities",
+            "description": "Enumeration of available abilities for a AgentWP.",
+            "type": "string",
+            "enum": [
+                "run",
+                "message",
+                "navigate",
+                "query",
+                "code",
+                "writeToInput",
+                "writeToEditor"
+            ]
+        },
         "baseAction": {
             "type": "object",
             "properties": {
                 "ability": {
-                    "type": "string",
+                    "$ref": "#/definitions/abilities",
                     "description": "The ability of the Action defines what it's able to do when executed by the WordPress client."
                 }
             },

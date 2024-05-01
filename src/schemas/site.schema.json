@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://schema.agentwp.com/site.schema.json",
+    "$id": "https://schemas.agentwp.com/site.schema.json",
     "version": "0.1.0",
     "title": "WordPress Site Metadata",
     "type": "object",
