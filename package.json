@@ -5,9 +5,10 @@
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build:types": "json2ts -i src/schemas/ -o dist/types/",
     "build:schemas": "sh ./scripts/build-schemas.sh",
-    "build": "npm run build:schemas && npm run build:types",
+    "build:types": "json2ts -i src/schemas/ -o dist/types/",
+    "build:go": "go-jsonschema src/schemas/* -p schemas -o=schemas.go",
+    "build": "npm run build:schemas && npm run build:types && npm run build:go",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
