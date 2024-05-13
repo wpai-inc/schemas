@@ -53,7 +53,7 @@ export interface BaseAction {
   [k: string]: unknown;
 }
 export interface MessageAction {
-  ability?: SendsAMessageToTheAgentWPDialogInterfaceForTheUserToRespondTo;
+  ability: SendsAMessageToTheAgentWPDialogInterfaceForTheUserToRespondTo;
   /**
    * The text of the message in markdown.
    */

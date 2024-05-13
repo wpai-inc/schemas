@@ -152,8 +152,7 @@
                         },
                         "required": [
                             "label",
-                            "url",
-                            "ability"
+                            "url"
                         ]
                     }
                 },
@@ -188,13 +187,13 @@
                     },
                     "required": [
                         "graphType",
-                        "data",
-                        "ability"
+                        "data"
                     ]
                 }
             },
             "required": [
-                "text"
+                "text",
+                "ability"
             ]
         }
     }
