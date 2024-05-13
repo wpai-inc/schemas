@@ -16,7 +16,7 @@ export type Action1 = BaseAction;
 export type Abilities = "run" | "message" | "navigate" | "query" | "code" | "writeToInput" | "writeToEditor";
 export type Action2 = NavigateAction | RunAction | CodeAction | MessageAction;
 export type NavigateAction = {
-  ability?: PerformsAStandardPageNavigationWithinWordPressUsingWindowLocation;
+  ability: PerformsAStandardPageNavigationWithinWordPressUsingWindowLocation;
   /**
    * The URL to navigate to.
    */
@@ -25,7 +25,7 @@ export type NavigateAction = {
 };
 export type PerformsAStandardPageNavigationWithinWordPressUsingWindowLocation = "navigate";
 export type RunAction = {
-  ability?: RunsAWPCLICommandInTheWordPressInstallation;
+  ability: RunsAWPCLICommandInTheWordPressInstallation;
   /**
    * The WP CLI command to run.
    */
@@ -38,7 +38,7 @@ export type RunAction = {
 };
 export type RunsAWPCLICommandInTheWordPressInstallation = "run";
 export type CodeAction = {
-  ability?: CodeToBeExecutedInTheWordPressEnvironment;
+  ability: CodeToBeExecutedInTheWordPressEnvironment;
   /**
    * The absolute file path to the code.
    */
