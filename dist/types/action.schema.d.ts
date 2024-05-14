@@ -14,7 +14,7 @@ export type Action1 = BaseAction;
  * The ability of the Action defines what it's able to do when executed by the WordPress client.
  */
 export type Abilities = "run" | "message" | "navigate" | "query" | "code" | "writeToInput" | "writeToEditor";
-export type Action2 = NavigateAction | RunAction | CodeAction | MessageAction;
+export type Action2 = NavigateAction | RunAction | CodeAction | QueryAction | MessageAction;
 export type NavigateAction = {
   ability: PerformsAStandardPageNavigationWithinWordPressUsingWindowLocation;
   /**
@@ -46,6 +46,19 @@ export type CodeAction = {
   [k: string]: unknown;
 };
 export type CodeToBeExecutedInTheWordPressEnvironment = "code";
+export type QueryAction = {
+  ability: RunsSQLQueriesInTheWordPressDatabase;
+  /**
+   * The SQL query to run with placeholders that will be replaced by the prepared arguments.
+   */
+  sql: string;
+  /**
+   * Arguments for the query, to be ran through `wpdb::prepare`.
+   */
+  args?: string[];
+  [k: string]: unknown;
+};
+export type RunsSQLQueriesInTheWordPressDatabase = "query";
 export type SendsAMessageToTheAgentWPDialogInterfaceForTheUserToRespondTo = "message";
 
 export interface BaseAction {

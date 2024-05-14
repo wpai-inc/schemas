@@ -21,6 +21,9 @@
             "$ref": "#/definitions/codeAction"
         },
         {
+            "$ref": "#/definitions/queryAction"
+        },
+        {
             "$ref": "#/definitions/messageAction"
         }
     ],
