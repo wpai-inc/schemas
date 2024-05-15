@@ -12,9 +12,5 @@
             "name": "Greg Hunt",
             "email": "greg@codewp.ai"
         }
-    ],
-    "require": {
-        "swaggest/json-cli": "^1.2",
-        "swaggest/json-schema": "^0.12.42"
-    }
+    ]
 }
