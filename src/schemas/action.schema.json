@@ -21,6 +21,9 @@
             "$ref": "#/definitions/codeAction"
         },
         {
+            "$ref": "#/definitions/queryAction"
+        },
+        {
             "$ref": "#/definitions/messageAction"
         }
     ],
@@ -65,7 +68,35 @@
                         }
                     },
                     "required": [
-                        "url"
+                        "url",
+                        "ability"
+                    ]
+                }
+            ]
+        },
+        "queryAction": {
+            "allOf": [
+                {
+                    "properties": {
+                        "ability": {
+                            "const": "query",
+                            "title": "Runs SQL queries in the WordPress database."
+                        },
+                        "sql": {
+                            "type": "string",
+                            "description": "The SQL query to run with placeholders that will be replaced by the prepared arguments."
+                        },
+                        "args": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "Arguments for the query, to be ran through `wpdb::prepare`."
+                        }
+                    },
+                    "required": [
+                        "ability",
+                        "sql"
                     ]
                 }
             ]
@@ -124,7 +155,8 @@
                         }
                     },
                     "required": [
-                        "command"
+                        "command",
+                        "ability"
                     ]
                 }
             ]
@@ -143,7 +175,8 @@
                         }
                     },
                     "required": [
-                        "file"
+                        "file",
+                        "ability"
                     ]
                 }
             ]
@@ -222,7 +255,8 @@
                 }
             },
             "required": [
-                "text"
+                "text",
+                "ability"
             ]
         }
     }

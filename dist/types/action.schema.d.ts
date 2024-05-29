@@ -14,9 +14,9 @@ export type Action1 = BaseAction;
  * The ability of the Action defines what it's able to do when executed by the WordPress client.
  */
 export type Abilities = "run" | "message" | "navigate" | "query" | "code" | "writeToInput" | "writeToEditor";
-export type Action2 = NavigateAction | RunAction | CodeAction | MessageAction;
+export type Action2 = NavigateAction | RunAction | CodeAction | QueryAction | MessageAction;
 export type NavigateAction = {
-  ability?: PerformsAStandardPageNavigationWithinWordPressUsingWindowLocation;
+  ability: PerformsAStandardPageNavigationWithinWordPressUsingWindowLocation;
   /**
    * The URL to navigate to.
    */
@@ -25,7 +25,7 @@ export type NavigateAction = {
 };
 export type PerformsAStandardPageNavigationWithinWordPressUsingWindowLocation = "navigate";
 export type RunAction = {
-  ability?: RunsAWPCLICommandInTheWordPressInstallation;
+  ability: RunsAWPCLICommandInTheWordPressInstallation;
   /**
    * The WP CLI command to run.
    */
@@ -38,7 +38,7 @@ export type RunAction = {
 };
 export type RunsAWPCLICommandInTheWordPressInstallation = "run";
 export type CodeAction = {
-  ability?: CodeToBeExecutedInTheWordPressEnvironment;
+  ability: CodeToBeExecutedInTheWordPressEnvironment;
   /**
    * The absolute file path to the code.
    */
@@ -46,6 +46,19 @@ export type CodeAction = {
   [k: string]: unknown;
 };
 export type CodeToBeExecutedInTheWordPressEnvironment = "code";
+export type QueryAction = {
+  ability: RunsSQLQueriesInTheWordPressDatabase;
+  /**
+   * The SQL query to run with placeholders that will be replaced by the prepared arguments.
+   */
+  sql: string;
+  /**
+   * Arguments for the query, to be ran through `wpdb::prepare`.
+   */
+  args?: string[];
+  [k: string]: unknown;
+};
+export type RunsSQLQueriesInTheWordPressDatabase = "query";
 export type SendsAMessageToTheAgentWPDialogInterfaceForTheUserToRespondTo = "message";
 
 export interface BaseAction {
@@ -53,7 +66,7 @@ export interface BaseAction {
   [k: string]: unknown;
 }
 export interface MessageAction {
-  ability?: SendsAMessageToTheAgentWPDialogInterfaceForTheUserToRespondTo;
+  ability: SendsAMessageToTheAgentWPDialogInterfaceForTheUserToRespondTo;
   /**
    * The text of the message in markdown.
    */
