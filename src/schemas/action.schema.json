@@ -70,6 +70,39 @@
                 }
             ]
         },
+        "queryAction": {
+            "allOf": [
+                {
+                    "properties": {
+                        "ability": {
+                            "const": "query",
+                            "title": "Queries the WordPress database using $wpdb global and a prepared statement."
+                        },
+                        "sql": {
+                            "type": "string",
+                            "description": "The SQL query to execute."
+                        },
+                        "params": {
+                            "type": "array",
+                            "items": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "number"
+                                    }
+                                ]
+                            },
+                            "description": "Arguments for the query."
+                        }
+                    },
+                    "required": [
+                        "url"
+                    ]
+                }
+            ]
+        },
         "runAction": {
             "allOf": [
                 {
