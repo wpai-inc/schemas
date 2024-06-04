@@ -14,7 +14,7 @@ export type Action1 = BaseAction;
  * The ability of the Action defines what it's able to do when executed by the WordPress client.
  */
 export type Abilities = "run" | "message" | "navigate" | "query" | "code" | "writeToInput" | "writeToEditor";
-export type Action2 = NavigateAction | RunAction | CodeAction | QueryAction | MessageAction;
+export type Action2 = NavigateAction | RunAction | CodeAction | QueryAction | MessageAction | WriteToEditorAction;
 export type NavigateAction = {
   ability: PerformsAStandardPageNavigationWithinWordPressUsingWindowLocation;
   /**
@@ -47,7 +47,7 @@ export type CodeAction = {
 };
 export type CodeToBeExecutedInTheWordPressEnvironment = "code";
 export type QueryAction = {
-  ability: RunsSQLQueriesInTheWordPressDatabase;
+  ability: QueriesTheWordPressDatabaseUsing$WpdbGlobalAndAPreparedStatement;
   /**
    * The SQL query to run with placeholders that will be replaced by the prepared arguments.
    */
@@ -55,11 +55,12 @@ export type QueryAction = {
   /**
    * Arguments for the query, to be ran through `wpdb::prepare`.
    */
-  args?: string[];
+  args?: (string | number)[];
   [k: string]: unknown;
 };
-export type RunsSQLQueriesInTheWordPressDatabase = "query";
+export type QueriesTheWordPressDatabaseUsing$WpdbGlobalAndAPreparedStatement = "query";
 export type SendsAMessageToTheAgentWPDialogInterfaceForTheUserToRespondTo = "message";
+export type WritesTextToTheWordPressEditor = "writeToEditor";
 
 export interface BaseAction {
   ability: Abilities;
@@ -87,5 +88,13 @@ export interface MessageAction {
     }[];
     [k: string]: unknown;
   };
+  [k: string]: unknown;
+}
+export interface WriteToEditorAction {
+  ability: WritesTextToTheWordPressEditor;
+  /**
+   * The text to write to the editor using Gutenberg blocks.
+   */
+  text: string;
   [k: string]: unknown;
 }
