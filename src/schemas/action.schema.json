@@ -25,6 +25,9 @@
         },
         {
             "$ref": "#/definitions/messageAction"
+        },
+        {
+            "$ref": "#/definitions/writeToEditorAction"
         }
     ],
     "definitions": {
@@ -226,6 +229,23 @@
                         "graphType",
                         "data"
                     ]
+                }
+            },
+            "required": [
+                "text",
+                "ability"
+            ]
+        },
+        "writeToEditorAction": {
+            "type": "object",
+            "properties": {
+                "ability": {
+                    "const": "writeToEditor",
+                    "title": "Writes text to the WordPress editor."
+                },
+                "text": {
+                    "type": "string",
+                    "description": "The text to write to the editor using Gutenberg blocks."
                 }
             },
             "required": [
