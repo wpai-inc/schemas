@@ -53,9 +53,7 @@
                     "description": "The ability of the Action defines what it's able to do when executed by the WordPress client."
                 }
             },
-            "required": [
-                "ability"
-            ]
+            "required": ["ability"]
         },
         "navigateAction": {
             "allOf": [
@@ -70,10 +68,7 @@
                             "description": "The URL to navigate to."
                         }
                     },
-                    "required": [
-                        "url",
-                        "ability"
-                    ]
+                    "required": ["url", "ability"]
                 }
             ]
         },
@@ -104,10 +99,7 @@
                             "description": "Arguments for the query, to be ran through `wpdb::prepare`."
                         }
                     },
-                    "required": [
-                        "ability",
-                        "sql"
-                    ]
+                    "required": ["ability", "sql"]
                 }
             ]
         },
@@ -131,10 +123,7 @@
                             "description": "Arguments for the command."
                         }
                     },
-                    "required": [
-                        "command",
-                        "ability"
-                    ]
+                    "required": ["command", "ability"]
                 }
             ]
         },
@@ -151,10 +140,7 @@
                             "description": "The absolute file path to the code."
                         }
                     },
-                    "required": [
-                        "file",
-                        "ability"
-                    ]
+                    "required": ["file", "ability"]
                 }
             ]
         },
@@ -190,10 +176,7 @@
                                 ]
                             }
                         },
-                        "required": [
-                            "label",
-                            "url"
-                        ]
+                        "required": ["label", "url"]
                     }
                 },
                 "graph": {
@@ -218,29 +201,20 @@
                                         "type": "number"
                                     }
                                 },
-                                "required": [
-                                    "label",
-                                    "value"
-                                ]
+                                "required": ["label", "value"]
                             }
                         }
                     },
-                    "required": [
-                        "graphType",
-                        "data"
-                    ]
+                    "required": ["graphType", "data"]
                 }
             },
-            "required": [
-                "text",
-                "ability"
-            ]
+            "required": ["text", "ability"]
         },
         "writeToEditorAction": {
             "type": "object",
             "properties": {
                 "ability": {
-                    "const": "writeToEditor",
+                    "const": "write_to_editor",
                     "title": "Writes text to the WordPress editor."
                 },
                 "text": {
@@ -248,10 +222,7 @@
                     "description": "The text to write to the editor using Gutenberg blocks."
                 }
             },
-            "required": [
-                "text",
-                "ability"
-            ]
+            "required": ["text", "ability"]
         }
     }
 }
