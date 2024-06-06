@@ -60,7 +60,7 @@ export type QueryAction = {
 };
 export type QueriesTheWordPressDatabaseUsing$WpdbGlobalAndAPreparedStatement = "query";
 export type SendsAMessageToTheAgentWPDialogInterfaceForTheUserToRespondTo = "message";
-export type WritesTextToTheWordPressEditor = "writeToEditor";
+export type WritesTextToTheWordPressEditor = "write_to_editor";
 
 export interface BaseAction {
   ability: Abilities;
