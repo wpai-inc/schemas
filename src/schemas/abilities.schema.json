@@ -11,7 +11,7 @@
         "navigate",
         "query",
         "code",
-        "writeToInput",
-        "writeToEditor"
+        "write_to_input",
+        "write_to_editor"
     ]
 }
