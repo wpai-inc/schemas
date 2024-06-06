@@ -13,7 +13,7 @@ export type Action1 = BaseAction;
 /**
  * The ability of the Action defines what it's able to do when executed by the WordPress client.
  */
-export type Abilities = "run" | "message" | "navigate" | "query" | "code" | "writeToInput" | "writeToEditor";
+export type Abilities = "run" | "message" | "navigate" | "query" | "code" | "write_to_input" | "write_to_editor";
 export type Action2 = NavigateAction | RunAction | CodeAction | QueryAction | MessageAction | WriteToEditorAction;
 export type NavigateAction = {
   ability: PerformsAStandardPageNavigationWithinWordPressUsingWindowLocation;

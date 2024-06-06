@@ -8,4 +8,4 @@
 /**
  * Enumeration of available abilities for a AgentWP.
  */
-export type Abilities = "run" | "message" | "navigate" | "query" | "code" | "writeToInput" | "writeToEditor";
+export type Abilities = "run" | "message" | "navigate" | "query" | "code" | "write_to_input" | "write_to_editor";
