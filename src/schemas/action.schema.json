@@ -197,72 +197,78 @@
                     }
                 },
                 "graph": {
-                    "type": "object",
-                    "properties": {
-                        "graphType": {
-                            "type": "string",
-                            "default": "bar"
-                        },
-                        "title": {
-                            "type": "string"
-                        },
-                        "data": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "label": {
-                                        "type": "string"
-                                    },
-                                    "value": {
-                                        "type": "number"
-                                    }
-                                },
-                                "required": [
-                                    "label",
-                                    "value"
-                                ]
-                            }
-                        }
-                    },
-                    "required": [
-                        "graphType",
-                        "data"
-                    ]
+                    "$ref": "#/definitions/messageActionGraph"
                 },
                 "escalation": {
-                    "type": "object",
-                    "properties": {
-                        "service": {
-                            "type": "string",
-                            "enum": [
-                                "codeable"
-                            ],
-                            "description": "The name of the escalation service to use."
-                        },
-                        "id": {
-                            "type": "string",
-                            "description": "The ID of the escalation."
-                        },
-                        "name": {
-                            "type": "string",
-                            "description": "Name of the service. Usually contains an identifier."
-                        },
-                        "headline": {
-                            "type": "string",
-                            "description": "The headline of the escalation."
-                        },
-                        "description": {
-                            "type": "string",
-                            "description": "The description of the escalation."
-                        }
-                    }
+                    "$ref": "#/definitions/messageActionEscalation"
                 }
             },
             "required": [
                 "text",
                 "ability"
             ]
+        },
+        "messageActionGraph": {
+            "type": "object",
+            "properties": {
+                "graphType": {
+                    "type": "string",
+                    "default": "bar"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "label": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "number"
+                            }
+                        },
+                        "required": [
+                            "label",
+                            "value"
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "graphType",
+                "data"
+            ]
+        },
+        "messageActionEscalation": {
+            "type": "object",
+            "properties": {
+                "service": {
+                    "type": "string",
+                    "enum": [
+                        "codeable"
+                    ],
+                    "description": "The name of the escalation service to use."
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the escalation."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the service. Usually contains an identifier."
+                },
+                "headline": {
+                    "type": "string",
+                    "description": "The headline of the escalation."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the escalation."
+                }
+            }
         },
         "writeToEditorAction": {
             "type": "object",
