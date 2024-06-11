@@ -88,6 +88,29 @@ export interface MessageAction {
     }[];
     [k: string]: unknown;
   };
+  escalation?: {
+    /**
+     * The name of the escalation service to use.
+     */
+    service?: "codeable";
+    /**
+     * The ID of the escalation.
+     */
+    id?: string;
+    /**
+     * Name of the service. Usually contains an identifier.
+     */
+    name?: string;
+    /**
+     * The headline of the escalation.
+     */
+    headline?: string;
+    /**
+     * The description of the escalation.
+     */
+    description?: string;
+    [k: string]: unknown;
+  };
   [k: string]: unknown;
 }
 export interface WriteToEditorAction {
