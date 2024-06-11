@@ -53,7 +53,9 @@
                     "description": "The ability of the Action defines what it's able to do when executed by the WordPress client."
                 }
             },
-            "required": ["ability"]
+            "required": [
+                "ability"
+            ]
         },
         "navigateAction": {
             "allOf": [
@@ -68,7 +70,10 @@
                             "description": "The URL to navigate to."
                         }
                     },
-                    "required": ["url", "ability"]
+                    "required": [
+                        "url",
+                        "ability"
+                    ]
                 }
             ]
         },
@@ -99,7 +104,10 @@
                             "description": "Arguments for the query, to be ran through `wpdb::prepare`."
                         }
                     },
-                    "required": ["ability", "sql"]
+                    "required": [
+                        "ability",
+                        "sql"
+                    ]
                 }
             ]
         },
@@ -123,7 +131,10 @@
                             "description": "Arguments for the command."
                         }
                     },
-                    "required": ["command", "ability"]
+                    "required": [
+                        "command",
+                        "ability"
+                    ]
                 }
             ]
         },
@@ -140,7 +151,10 @@
                             "description": "The absolute file path to the code."
                         }
                     },
-                    "required": ["file", "ability"]
+                    "required": [
+                        "file",
+                        "ability"
+                    ]
                 }
             ]
         },
@@ -176,7 +190,10 @@
                                 ]
                             }
                         },
-                        "required": ["label", "url"]
+                        "required": [
+                            "label",
+                            "url"
+                        ]
                     }
                 },
                 "graph": {
@@ -201,14 +218,51 @@
                                         "type": "number"
                                     }
                                 },
-                                "required": ["label", "value"]
+                                "required": [
+                                    "label",
+                                    "value"
+                                ]
                             }
                         }
                     },
-                    "required": ["graphType", "data"]
+                    "required": [
+                        "graphType",
+                        "data"
+                    ]
+                },
+                "escalation": {
+                    "type": "object",
+                    "properties": {
+                        "service": {
+                            "type": "string",
+                            "enum": [
+                                "codeable"
+                            ],
+                            "description": "The name of the escalation service to use."
+                        },
+                        "id": {
+                            "type": "string",
+                            "description": "The ID of the escalation."
+                        },
+                        "name": {
+                            "type": "string",
+                            "description": "Name of the service. Usually contains an identifier."
+                        },
+                        "headline": {
+                            "type": "string",
+                            "description": "The headline of the escalation."
+                        },
+                        "description": {
+                            "type": "string",
+                            "description": "The description of the escalation."
+                        }
+                    }
                 }
             },
-            "required": ["text", "ability"]
+            "required": [
+                "text",
+                "ability"
+            ]
         },
         "writeToEditorAction": {
             "type": "object",
@@ -222,7 +276,10 @@
                     "description": "The text to write to the editor using Gutenberg blocks."
                 }
             },
-            "required": ["text", "ability"]
+            "required": [
+                "text",
+                "ability"
+            ]
         }
     }
 }
