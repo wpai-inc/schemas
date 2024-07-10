@@ -286,6 +286,23 @@
                 "text",
                 "ability"
             ]
+        },
+        "writeToInputFieldAction": {
+            "type": "object",
+            "properties": {
+                "ability": {
+                    "const": "write_to_input",
+                    "title": "Writes text to an input field or textarea."
+                },
+                "text": {
+                    "type": "string",
+                    "description": "The text to write to the input field."
+                }
+            },
+            "required": [
+                "text",
+                "ability"
+            ]
         }
     }
 }
