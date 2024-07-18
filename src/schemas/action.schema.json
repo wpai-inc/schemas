@@ -102,10 +102,22 @@
                                 ]
                             },
                             "description": "Arguments for the query, to be ran through `wpdb::prepare`."
+                        },
+                        "visualization": {
+                            "type": "string",
+                            "enum": [
+                                "conversational",
+                                "bar-chart",
+                                "line-chart",
+                                "table",
+                                "big-number-card",
+                                "donut-chart"
+                            ]
                         }
                     },
                     "required": [
                         "ability",
+                        "visualization",
                         "sql"
                     ]
                 }

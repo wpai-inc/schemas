@@ -56,6 +56,7 @@ export type QueryAction = {
    * Arguments for the query, to be ran through `wpdb::prepare`.
    */
   args?: (string | number)[];
+  visualization: "conversational" | "bar-chart" | "line-chart" | "table" | "big-number-card" | "donut-chart";
   [k: string]: unknown;
 };
 export type QueriesTheWordPressDatabaseUsing$WpdbGlobalAndAPreparedStatement = "query";
