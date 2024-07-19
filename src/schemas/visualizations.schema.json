@@ -1,0 +1,16 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://schemas.agentwp.com/abilities.schema.json",
+    "version": "0.1.0",
+    "title": "Visualization",
+    "description": "Types of visualizations for presenting data.",
+    "type": "string",
+    "enum": [
+        "conversational",
+        "bar-chart",
+        "line-chart",
+        "table",
+        "big-number-card",
+        "donut-chart"
+    ]
+}
