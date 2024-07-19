@@ -56,10 +56,14 @@ export type QueryAction = {
    * Arguments for the query, to be ran through `wpdb::prepare`.
    */
   args?: (string | number)[];
-  visualization: "conversational" | "bar-chart" | "line-chart" | "table" | "big-number-card" | "donut-chart";
+  visualization: Visualization;
   [k: string]: unknown;
 };
 export type QueriesTheWordPressDatabaseUsing$WpdbGlobalAndAPreparedStatement = "query";
+/**
+ * Types of visualizations for presenting data.
+ */
+export type Visualization = "conversational" | "bar-chart" | "line-chart" | "table" | "big-number-card" | "donut-chart";
 export type SendsAMessageToTheAgentWPDialogInterfaceForTheUserToRespondTo = "message";
 export type WritesTextToTheWordPressEditor = "write_to_editor";
 
@@ -84,7 +88,7 @@ export interface MessageAction {
   [k: string]: unknown;
 }
 export interface MessageActionGraph {
-  graphType: string;
+  visualization: Visualization;
   title?: string;
   data: {
     label: string;

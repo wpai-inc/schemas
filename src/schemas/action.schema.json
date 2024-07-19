@@ -45,6 +45,19 @@
                 "write_to_editor"
             ]
         },
+        "visualization": {
+            "title": "Visualization",
+            "description": "Types of visualizations for presenting data.",
+            "type": "string",
+            "enum": [
+                "conversational",
+                "bar-chart",
+                "line-chart",
+                "table",
+                "big-number-card",
+                "donut-chart"
+            ]
+        },
         "baseAction": {
             "type": "object",
             "properties": {
@@ -104,15 +117,7 @@
                             "description": "Arguments for the query, to be ran through `wpdb::prepare`."
                         },
                         "visualization": {
-                            "type": "string",
-                            "enum": [
-                                "conversational",
-                                "bar-chart",
-                                "line-chart",
-                                "table",
-                                "big-number-card",
-                                "donut-chart"
-                            ]
+                            "$ref": "#/definitions/visualization"
                         }
                     },
                     "required": [
@@ -223,9 +228,8 @@
         "messageActionGraph": {
             "type": "object",
             "properties": {
-                "graphType": {
-                    "type": "string",
-                    "default": "bar"
+                "visualization": {
+                    "$ref": "#/definitions/visualization"
                 },
                 "title": {
                     "type": "string"
@@ -250,7 +254,7 @@
                 }
             },
             "required": [
-                "graphType",
+                "visualization",
                 "data"
             ]
         },
