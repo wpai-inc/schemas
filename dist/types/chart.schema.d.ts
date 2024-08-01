@@ -30,25 +30,6 @@ export interface Chart {
     }[]
   ];
   /**
-   * @minItems 1
-   */
-  data: [
-    {
-      /**
-       * This interface was referenced by `undefined`'s JSON-Schema definition
-       * via the `patternProperty` "^[a-zA-Z0-9]+$".
-       */
-      [k: string]: string | number;
-    },
-    ...{
-      /**
-       * This interface was referenced by `undefined`'s JSON-Schema definition
-       * via the `patternProperty` "^[a-zA-Z0-9]+$".
-       */
-      [k: string]: string | number;
-    }[]
-  ];
-  /**
    * Used to abbreviate the tick label to a certain character length
    */
   xAxisTickAbbr?: number;

@@ -37,28 +37,6 @@
             },
             "minItems": 1
         },
-        "data": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {},
-                "patternProperties": {
-                    "^[a-zA-Z0-9]+$": {
-                        "anyOf": [
-                            {
-                                "type": "string"
-                            },
-                            {
-                                "type": "number"
-                            }
-                        ]
-                    }
-                },
-                "minProperties": 2,
-                "additionalProperties": false
-            },
-            "minItems": 1
-        },
         "xAxisTickAbbr": {
             "type": "integer",
             "minimum": 2,
