@@ -34,12 +34,18 @@ export interface Chart {
    */
   data: [
     {
-      month: string;
-      [k: string]: number;
+      /**
+       * This interface was referenced by `undefined`'s JSON-Schema definition
+       * via the `patternProperty` "^[a-zA-Z0-9]+$".
+       */
+      [k: string]: string | number;
     },
     ...{
-      month: string;
-      [k: string]: number;
+      /**
+       * This interface was referenced by `undefined`'s JSON-Schema definition
+       * via the `patternProperty` "^[a-zA-Z0-9]+$".
+       */
+      [k: string]: string | number;
     }[]
   ];
   /**
