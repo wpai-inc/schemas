@@ -238,17 +238,21 @@
                     "type": "array",
                     "items": {
                         "type": "object",
-                        "properties": {
-                            "month": {
-                                "type": "string"
+                        "properties": {},
+                        "patternProperties": {
+                            "^[a-zA-Z0-9]+$": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "number"
+                                    }
+                                ]
                             }
                         },
-                        "additionalProperties": {
-                            "type": "number"
-                        },
-                        "required": [
-                            "month"
-                        ]
+                        "minProperties": 2,
+                        "additionalProperties": false
                     },
                     "minItems": 1
                 },
