@@ -5,7 +5,10 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface HttpsSchemasAgentwpComChartSchemaJson {
+/**
+ * Used to render dynamic charts with Recharts.js
+ */
+export interface Chart {
   xAxisKey: string;
   /**
    * An array of objects used to render the data rechart components
