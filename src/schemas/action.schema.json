@@ -214,119 +214,125 @@
                     }
                 },
                 "graph": {
-                    "type": "object",
-                    "properties": {
-                        "visualization": {
-                            "$ref": "#/definitions/visualization"
-                        },
-                        "title": {
-                            "type": "string"
-                        },
-                        "chart": {
-                            "type": "object",
-                            "properties": {
-                                "xAxisKey": {
-                                    "type": "string"
-                                },
-                                "dataKeys": {
-                                    "type": "array",
-                                    "description": "An array of objects used to render the data rechart components",
-                                    "items": {
-                                        "type": "object",
-                                        "properties": {
-                                            "key": {
-                                                "type": "string"
-                                            },
-                                            "label": {
-                                                "type": "string"
-                                            },
-                                            "color": {
-                                                "type": "string",
-                                                "enum": [
-                                                    "#4991F7",
-                                                    "#FF70A6",
-                                                    "#1E1E1E"
-                                                ]
-                                            }
-                                        },
-                                        "required": [
-                                            "key",
-                                            "label",
-                                            "color"
-                                        ]
-                                    },
-                                    "minItems": 1
-                                },
-                                "data": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "object",
-                                        "properties": {
-                                            "month": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "additionalProperties": {
-                                            "type": "number"
-                                        },
-                                        "required": [
-                                            "month"
-                                        ]
-                                    },
-                                    "minItems": 1
-                                },
-                                "xAxisTickAbbr": {
-                                    "type": "integer",
-                                    "minimum": 2,
-                                    "description": "Used to abbreviate the tick label to a certain character length"
-                                }
-                            },
-                            "required": [
-                                "xAxisKey",
-                                "dataKeys",
-                                "data"
-                            ],
-                            "additionalProperties": false
-                        }
-                    },
-                    "required": [
-                        "visualization",
-                        "chart"
-                    ]
+                    "$ref": "#/definitions/gaph"
                 },
                 "escalation": {
-                    "type": "object",
-                    "properties": {
-                        "service": {
-                            "type": "string",
-                            "enum": [
-                                "codeable"
-                            ],
-                            "description": "The name of the escalation service to use."
-                        },
-                        "id": {
-                            "type": "string",
-                            "description": "The ID of the escalation."
-                        },
-                        "name": {
-                            "type": "string",
-                            "description": "Name of the service. Usually contains an identifier."
-                        },
-                        "headline": {
-                            "type": "string",
-                            "description": "The headline of the escalation."
-                        },
-                        "description": {
-                            "type": "string",
-                            "description": "The description of the escalation."
-                        }
-                    }
+                    "$ref": "#/definitions/messageActionEscalation"
                 }
             },
             "required": [
                 "text",
                 "ability"
             ]
+        },
+        "gaph": {
+            "type": "object",
+            "properties": {
+                "visualization": {
+                    "$ref": "#/definitions/visualization"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "chart": {
+                    "type": "object",
+                    "properties": {
+                        "xAxisKey": {
+                            "type": "string"
+                        },
+                        "dataKeys": {
+                            "type": "array",
+                            "description": "An array of objects used to render the data rechart components",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "key": {
+                                        "type": "string"
+                                    },
+                                    "label": {
+                                        "type": "string"
+                                    },
+                                    "color": {
+                                        "type": "string",
+                                        "enum": [
+                                            "#4991F7",
+                                            "#FF70A6",
+                                            "#1E1E1E"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "key",
+                                    "label",
+                                    "color"
+                                ]
+                            },
+                            "minItems": 1
+                        },
+                        "data": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "month": {
+                                        "type": "string"
+                                    }
+                                },
+                                "additionalProperties": {
+                                    "type": "number"
+                                },
+                                "required": [
+                                    "month"
+                                ]
+                            },
+                            "minItems": 1
+                        },
+                        "xAxisTickAbbr": {
+                            "type": "integer",
+                            "minimum": 2,
+                            "description": "Used to abbreviate the tick label to a certain character length"
+                        }
+                    },
+                    "required": [
+                        "xAxisKey",
+                        "dataKeys",
+                        "data"
+                    ],
+                    "additionalProperties": false
+                }
+            },
+            "required": [
+                "visualization",
+                "chart"
+            ]
+        },
+        "messageActionEscalation": {
+            "type": "object",
+            "properties": {
+                "service": {
+                    "type": "string",
+                    "enum": [
+                        "codeable"
+                    ],
+                    "description": "The name of the escalation service to use."
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the escalation."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the service. Usually contains an identifier."
+                },
+                "headline": {
+                    "type": "string",
+                    "description": "The headline of the escalation."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the escalation."
+                }
+            }
         },
         "writeToEditorAction": {
             "type": "object",

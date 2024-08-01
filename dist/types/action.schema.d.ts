@@ -83,73 +83,75 @@ export interface MessageAction {
     level?: "primary" | "secondary" | "danger" | "success";
     [k: string]: unknown;
   }[];
-  graph?: {
-    visualization: Visualization;
-    title?: string;
-    chart: {
-      xAxisKey: string;
-      /**
-       * An array of objects used to render the data rechart components
-       *
-       * @minItems 1
-       */
-      dataKeys: [
-        {
-          key: string;
-          label: string;
-          color: "#4991F7" | "#FF70A6" | "#1E1E1E";
-          [k: string]: unknown;
-        },
-        ...{
-          key: string;
-          label: string;
-          color: "#4991F7" | "#FF70A6" | "#1E1E1E";
-          [k: string]: unknown;
-        }[]
-      ];
-      /**
-       * @minItems 1
-       */
-      data: [
-        {
-          month: string;
-          [k: string]: number;
-        },
-        ...{
-          month: string;
-          [k: string]: number;
-        }[]
-      ];
-      /**
-       * Used to abbreviate the tick label to a certain character length
-       */
-      xAxisTickAbbr?: number;
-    };
-    [k: string]: unknown;
+  graph?: Gaph;
+  escalation?: MessageActionEscalation;
+  [k: string]: unknown;
+}
+export interface Gaph {
+  visualization: Visualization;
+  title?: string;
+  chart: {
+    xAxisKey: string;
+    /**
+     * An array of objects used to render the data rechart components
+     *
+     * @minItems 1
+     */
+    dataKeys: [
+      {
+        key: string;
+        label: string;
+        color: "#4991F7" | "#FF70A6" | "#1E1E1E";
+        [k: string]: unknown;
+      },
+      ...{
+        key: string;
+        label: string;
+        color: "#4991F7" | "#FF70A6" | "#1E1E1E";
+        [k: string]: unknown;
+      }[]
+    ];
+    /**
+     * @minItems 1
+     */
+    data: [
+      {
+        month: string;
+        [k: string]: number;
+      },
+      ...{
+        month: string;
+        [k: string]: number;
+      }[]
+    ];
+    /**
+     * Used to abbreviate the tick label to a certain character length
+     */
+    xAxisTickAbbr?: number;
   };
-  escalation?: {
-    /**
-     * The name of the escalation service to use.
-     */
-    service?: "codeable";
-    /**
-     * The ID of the escalation.
-     */
-    id?: string;
-    /**
-     * Name of the service. Usually contains an identifier.
-     */
-    name?: string;
-    /**
-     * The headline of the escalation.
-     */
-    headline?: string;
-    /**
-     * The description of the escalation.
-     */
-    description?: string;
-    [k: string]: unknown;
-  };
+  [k: string]: unknown;
+}
+export interface MessageActionEscalation {
+  /**
+   * The name of the escalation service to use.
+   */
+  service?: "codeable";
+  /**
+   * The ID of the escalation.
+   */
+  id?: string;
+  /**
+   * Name of the service. Usually contains an identifier.
+   */
+  name?: string;
+  /**
+   * The headline of the escalation.
+   */
+  headline?: string;
+  /**
+   * The description of the escalation.
+   */
+  description?: string;
   [k: string]: unknown;
 }
 export interface WriteToEditorAction {
