@@ -214,7 +214,7 @@
                     }
                 },
                 "graph": {
-                    "$ref": "#/definitions/gaph"
+                    "$ref": "#/definitions/graph"
                 },
                 "escalation": {
                     "$ref": "#/definitions/messageActionEscalation"
@@ -225,7 +225,7 @@
                 "ability"
             ]
         },
-        "gaph": {
+        "graph": {
             "type": "object",
             "properties": {
                 "visualization": {
@@ -233,6 +233,24 @@
                 },
                 "title": {
                     "type": "string"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "month": {
+                                "type": "string"
+                            }
+                        },
+                        "additionalProperties": {
+                            "type": "number"
+                        },
+                        "required": [
+                            "month"
+                        ]
+                    },
+                    "minItems": 1
                 },
                 "chart": {
                     "type": "object",
@@ -269,24 +287,6 @@
                             },
                             "minItems": 1
                         },
-                        "data": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "month": {
-                                        "type": "string"
-                                    }
-                                },
-                                "additionalProperties": {
-                                    "type": "number"
-                                },
-                                "required": [
-                                    "month"
-                                ]
-                            },
-                            "minItems": 1
-                        },
                         "xAxisTickAbbr": {
                             "type": "integer",
                             "minimum": 2,
@@ -295,15 +295,14 @@
                     },
                     "required": [
                         "xAxisKey",
-                        "dataKeys",
-                        "data"
+                        "dataKeys"
                     ],
                     "additionalProperties": false
                 }
             },
             "required": [
                 "visualization",
-                "chart"
+                "data"
             ]
         },
         "messageActionEscalation": {

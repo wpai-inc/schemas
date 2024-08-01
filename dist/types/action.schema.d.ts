@@ -83,14 +83,27 @@ export interface MessageAction {
     level?: "primary" | "secondary" | "danger" | "success";
     [k: string]: unknown;
   }[];
-  graph?: Gaph;
+  graph?: Graph;
   escalation?: MessageActionEscalation;
   [k: string]: unknown;
 }
-export interface Gaph {
+export interface Graph {
   visualization: Visualization;
   title?: string;
-  chart: {
+  /**
+   * @minItems 1
+   */
+  data: [
+    {
+      month: string;
+      [k: string]: number;
+    },
+    ...{
+      month: string;
+      [k: string]: number;
+    }[]
+  ];
+  chart?: {
     xAxisKey: string;
     /**
      * An array of objects used to render the data rechart components
@@ -109,19 +122,6 @@ export interface Gaph {
         label: string;
         color: "#4991F7" | "#FF70A6" | "#1E1E1E";
         [k: string]: unknown;
-      }[]
-    ];
-    /**
-     * @minItems 1
-     */
-    data: [
-      {
-        month: string;
-        [k: string]: number;
-      },
-      ...{
-        month: string;
-        [k: string]: number;
       }[]
     ];
     /**
