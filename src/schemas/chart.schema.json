@@ -1,0 +1,68 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://schemas.agentwp.com/chart.schema.json",
+    "type": "object",
+    "properties": {
+        "xAxisKey": {
+            "type": "string"
+        },
+        "dataKeys": {
+            "type": "array",
+            "description": "An array of objects used to render the data rechart components",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "key": {
+                        "type": "string"
+                    },
+                    "label": {
+                        "type": "string"
+                    },
+                    "color": {
+                        "type": "string",
+                        "enum": [
+                            "#4991F7",
+                            "#FF70A6",
+                            "#1E1E1E"
+                        ]
+                    }
+                },
+                "required": [
+                    "key",
+                    "label",
+                    "color"
+                ]
+            },
+            "minItems": 1
+        },
+        "data": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "month": {
+                        "type": "string"
+                    }
+                },
+                "additionalProperties": {
+                    "type": "number"
+                },
+                "required": [
+                    "month"
+                ]
+            },
+            "minItems": 1
+        },
+        "xAxisTickAbbr": {
+            "type": "integer",
+            "minimum": 2,
+            "description": "Used to abbreviate the tick label to a certain character length"
+        }
+    },
+    "required": [
+        "xAxisKey",
+        "dataKeys",
+        "data"
+    ],
+    "additionalProperties": false
+}
