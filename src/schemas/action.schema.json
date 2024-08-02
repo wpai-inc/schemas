@@ -334,8 +334,19 @@
                 "description": {
                     "type": "string",
                     "description": "The description of the escalation."
+                },
+                "link": {
+                    "type": "string",
+                    "description": "The link to the escalation."
                 }
-            }
+            },
+            "required": [
+                "service",
+                "id",
+                "name",
+                "headline",
+                "description"
+            ]
         },
         "writeToEditorAction": {
             "type": "object",

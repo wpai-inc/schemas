@@ -95,12 +95,18 @@ export interface Graph {
    */
   data: [
     {
-      month: string;
-      [k: string]: number;
+      /**
+       * This interface was referenced by `undefined`'s JSON-Schema definition
+       * via the `patternProperty` "^[a-zA-Z0-9]+$".
+       */
+      [k: string]: string | number;
     },
     ...{
-      month: string;
-      [k: string]: number;
+      /**
+       * This interface was referenced by `undefined`'s JSON-Schema definition
+       * via the `patternProperty` "^[a-zA-Z0-9]+$".
+       */
+      [k: string]: string | number;
     }[]
   ];
   chart?: {
@@ -135,23 +141,27 @@ export interface MessageActionEscalation {
   /**
    * The name of the escalation service to use.
    */
-  service?: "codeable";
+  service: "codeable";
   /**
    * The ID of the escalation.
    */
-  id?: string;
+  id: string;
   /**
    * Name of the service. Usually contains an identifier.
    */
-  name?: string;
+  name: string;
   /**
    * The headline of the escalation.
    */
-  headline?: string;
+  headline: string;
   /**
    * The description of the escalation.
    */
-  description?: string;
+  description: string;
+  /**
+   * The link to the escalation.
+   */
+  link?: string;
   [k: string]: unknown;
 }
 export interface WriteToEditorAction {
