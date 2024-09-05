@@ -20,10 +20,15 @@ class Schema
         $this->schema = JsonSchema::import($this->toObject());
     }
 
+    public function validate(string $json): void
+    {
+        $this->schema->in(json_decode($json));
+    }
+
     public function isValid(string $json)
     {
         try {
-            $this->schema->in(json_decode($json));
+            $this->validate($json);
 
             return true;
         } catch (InvalidValue $e) {
