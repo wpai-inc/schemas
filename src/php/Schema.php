@@ -2,15 +2,33 @@
 
 namespace WpAi\Schemas;
 
-class Schema {
+use Swaggest\JsonSchema\InvalidValue;
+use Swaggest\JsonSchema\Schema as JsonSchema;
 
+class Schema
+{
     private string $filename;
+
     private string $path;
 
-    public function __construct( private string $name )
+    private $schema;
+
+    public function __construct(private string $name)
     {
         $this->filename = "$name.schema.json";
-        $this->path = __DIR__ . "/../schemas/" . $this->filename;
+        $this->path = __DIR__.'/../schemas/'.$this->filename;
+        $this->schema = JsonSchema::import($this->toObject());
+    }
+
+    public function isValid(string $json)
+    {
+        try {
+            $this->schema->in(json_decode($json));
+
+            return true;
+        } catch (InvalidValue $e) {
+            return false;
+        }
     }
 
     public function getContents(): string
